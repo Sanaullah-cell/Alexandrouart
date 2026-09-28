@@ -1,0 +1,877 @@
+<!-- SECTION: DOCUMENT HEAD -->
+<!doctype html>
+<html lang="el" data-lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title id="doc-title">Alexandrou Art Association | Όμοδος — Μη Κερδοσκοπικό Σωματείο Πολιτισμού</title>
+<meta id="meta-desc" name="description" content="Alexandrou Art Association: μη κερδοσκοπικό σωματείο πολιτισμού στο Όμοδος, διαπιστευμένο από το Erasmus+. Μουσική, θέατρο και κινηματογράφος με τον Χρίστο Αλεξάνδρου. Non-profit cultural association in Omodos, Cyprus.">
+<meta name="theme-color" content="#F1E9DA">
+
+<!-- Replace with the real live domain once this goes on a host, then update this og:url, the JSON-LD "url" field below, and the canonical link -->
+<link rel="canonical" href="https://REPLACE-WITH-DOMAIN.example/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Alexandrou Art Association">
+<meta property="og:title" content="Alexandrou Art Association — Όμοδος, Κύπρος / Omodos, Cyprus">
+<meta property="og:description" content="Μη κερδοσκοπικό σωματείο πολιτισμού, διαπιστευμένο από το Erasmus+. / Non-profit cultural association, Erasmus+ accredited.">
+<meta property="og:image" content="img/yt-network.jpg">
+<meta property="og:image:alt" content="Χρίστος Αλεξάνδρου — Alexandrou Art Association">
+<meta property="og:url" content="https://REPLACE-WITH-DOMAIN.example/">
+<meta property="og:locale" content="el_CY">
+<meta property="og:locale:alternate" content="en_GB">
+
+<!-- Favicon: real Association logo, pulled from their Google Business listing -->
+<link rel="icon" type="image/png" href="img/logo.png">
+
+<style>
+/* ===== TOKENS — warm stone / terracotta / moss, a mountain-village palette (Omodos) ===== */
+:root{
+  --bg:#F1E9DA;
+  --bg-alt:#E7DBC1;
+  --panel:#FBF6EB;
+  --line:#D9C9A6;
+  --ink:#2A211A;
+  --ink-dim:#6B5D48;
+  --ink-faint:#7C6D50;
+  --accent:#A6402B;
+  --accent-bright:#C65138;
+  --accent-dim:#DDBBAE;
+  --moss:#5C6B45;
+  --brass:#A9822E;
+  --focus:#C79A3B;
+  --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-body: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --radius: 4px;
+  --container: 1080px;
+}
+
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+h1,h2,h3{font-family:var(--font-display);font-weight:800;line-height:1.1;margin:0 0 .5em;}
+p{margin:0 0 1em;}
+.container{max-width:var(--container);margin:0 auto;padding:0 22px;}
+section{position:relative;}
+
+/* language toggle: default Greek shown, English hidden. Hide-only rules. */
+html:not([data-lang="en"]) .en{display:none !important;}
+html[data-lang="en"] .el{display:none !important;}
+
+*:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:2px;}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.skip-link{
+  position:absolute;left:12px;top:-60px;background:var(--accent);color:#fff;
+  padding:10px 16px;border-radius:var(--radius);font-weight:700;z-index:1000;transition:top .15s ease;font-family:var(--font-ui);
+}
+.skip-link:focus{top:12px;}
+
+/* ===== SCROLL PROGRESS ===== */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:300;width:0%;transition:width .1s linear;}
+
+/* ===== MASTHEAD (minimal — no horizontal nav bar) ===== */
+header.masthead{
+  position:sticky;top:0;z-index:100;
+  background:rgba(241,233,218,.92);backdrop-filter:saturate(140%) blur(8px);-webkit-backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.masthead-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:12px;}
+.masthead-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);}
+.masthead-brand img{height:58px;width:auto;}
+.masthead-brand span{display:none;font-family:var(--font-ui);font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:.86rem;}
+@media (min-width:560px){.masthead-brand span{display:block;}}
+.lang-toggle{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--panel);font-family:var(--font-ui);}
+.lang-toggle button{background:transparent;border:0;color:var(--ink-dim);font-weight:700;font-size:.72rem;letter-spacing:.06em;padding:7px 12px;cursor:pointer;}
+.lang-toggle button[aria-pressed="true"]{background:var(--accent);color:#fff;}
+
+/* ===== BUTTONS ===== */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-ui);font-weight:700;font-size:.86rem;
+  padding:12px 22px;border-radius:999px;text-decoration:none;cursor:pointer;border:1px solid transparent;white-space:nowrap;
+}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{background:var(--accent-bright);}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--ink-faint);}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+.btn svg{width:16px;height:16px;flex:0 0 auto;}
+
+/* ===== KICKER ===== */
+.kicker{font-family:var(--font-ui);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:800;display:block;margin-bottom:.8em;}
+
+/* ===== HERO — manifesto style, no photo, no CTA pair ===== */
+.hero{padding:96px 0 72px;text-align:center;position:relative;overflow:hidden;}
+.hero-mark{position:absolute;top:-60px;right:-60px;width:340px;height:340px;opacity:.06;pointer-events:none;}
+.hero-mark svg{width:100%;height:100%;}
+.hero-inner{position:relative;z-index:2;max-width:760px;margin:0 auto;}
+.hero h1{font-family:var(--font-ui);text-transform:uppercase;letter-spacing:.02em;font-size:clamp(2.1rem,8vw,3.8rem);color:var(--ink);margin-bottom:.3em;}
+.hero-sub{font-family:var(--font-ui);font-size:.92rem;color:var(--ink-dim);letter-spacing:.04em;margin-bottom:2em;}
+.hero-quote{font-style:italic;font-size:clamp(1.15rem,3vw,1.5rem);color:var(--accent);max-width:640px;margin:0 auto 1.6em;line-height:1.5;}
+.hero-quote cite{display:block;font-style:normal;font-family:var(--font-ui);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-top:.8em;}
+
+.toc{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;font-family:var(--font-ui);font-size:.76rem;letter-spacing:.03em;margin-top:2.4em;}
+.toc a{text-decoration:none;color:var(--ink-dim);border-bottom:1px solid transparent;padding-bottom:2px;}
+.toc a:hover{color:var(--accent);border-color:var(--accent);}
+.toc .num{color:var(--accent-dim);font-weight:800;margin-right:.4em;}
+
+/* ===== SECTION HEADINGS ===== */
+.section-head{max-width:640px;margin:0 auto 44px;}
+.section-head.center{text-align:center;}
+.section-head h2{font-family:var(--font-ui);text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1.5rem,4vw,2.1rem);}
+.section-head p{color:var(--ink-dim);}
+.section-pad{padding:76px 0;}
+.section-alt{background:var(--bg-alt);}
+
+/* ===== GALLERY FRAME — the recurring "art association" touch: a mat border,
+   viewfinder corner-marks, and a museum wall-label caption under every real photo ===== */
+.gallery-frame{position:relative;padding:9px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);}
+.gallery-frame .frame-img{position:relative;overflow:hidden;border-radius:2px;}
+.gallery-frame .frame-img img{width:100%;display:block;transition:transform .5s ease;}
+.gallery-frame:hover .frame-img img{transform:scale(1.035);}
+.gallery-frame .corner{position:absolute;width:18px;height:18px;pointer-events:none;}
+.gallery-frame .corner-tl{top:0;left:0;border-top:2px solid var(--accent);border-left:2px solid var(--accent);}
+.gallery-frame .corner-tr{top:0;right:0;border-top:2px solid var(--accent);border-right:2px solid var(--accent);}
+.gallery-frame .corner-bl{bottom:0;left:0;border-bottom:2px solid var(--accent);border-left:2px solid var(--accent);}
+.gallery-frame .corner-br{bottom:0;right:0;border-bottom:2px solid var(--accent);border-right:2px solid var(--accent);}
+.gallery-label{margin-top:9px;padding-top:9px;border-top:1px solid var(--line);}
+.gallery-label b{display:block;font-family:var(--font-ui);font-weight:800;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:2px;}
+.gallery-label span{display:block;font-style:italic;font-size:.78rem;color:var(--ink-faint);line-height:1.4;}
+
+/* ===== ROOTS / HERITAGE ===== */
+.roots{display:grid;grid-template-columns:1fr;gap:36px;align-items:center;}
+.roots-photo{position:relative;}
+.roots-photo .vinyl-disc{
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle at center, var(--bg-alt) 0 6%, transparent 6.5% 7%, var(--bg-alt) 7% 9%, transparent 9.5% 100%),
+    repeating-radial-gradient(circle at center, var(--panel) 0 3px, var(--bg-alt) 3px 6px);
+  border:1px solid var(--line);pointer-events:none;
+}
+.roots-photo .frame-img img{aspect-ratio:4/5;object-fit:cover;}
+.roots-copy blockquote{
+  position:relative;font-style:italic;font-size:1.15rem;color:var(--ink);
+  border-left:3px solid var(--accent);padding-left:20px;padding-top:8px;margin:0 0 1.2em;
+}
+.roots-copy blockquote::before{
+  content:"\201C";position:absolute;left:16px;top:-30px;font-family:Georgia,serif;font-style:normal;font-size:4.4rem;
+  color:var(--accent-dim);line-height:1;pointer-events:none;z-index:0;
+}
+.roots-copy blockquote p{position:relative;z-index:1;}
+.roots-copy blockquote footer{font-style:normal;font-family:var(--font-ui);font-size:.78rem;color:var(--ink-faint);margin-top:.6em;text-transform:uppercase;letter-spacing:.05em;}
+
+/* ===== FEATURED VIDEO (a small curated pair, not a grid) ===== */
+.video-pair{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:44px;}
+.featured-video{max-width:820px;margin:0 auto;}
+.video-pair .featured-video{max-width:none;}
+.video-frame{position:relative;aspect-ratio:16/9;background:#141014;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);}
+.video-frame .corner{position:absolute;width:22px;height:22px;z-index:3;pointer-events:none;border-color:#fff;filter:drop-shadow(0 1px 3px rgba(0,0,0,.5));}
+.video-frame .corner-tl{top:10px;left:10px;border-top:2px solid;border-left:2px solid;}
+.video-frame .corner-tr{top:10px;right:10px;border-top:2px solid;border-right:2px solid;}
+.video-frame .corner-bl{bottom:10px;left:10px;border-bottom:2px solid;border-left:2px solid;}
+.video-frame .corner-br{bottom:10px;right:10px;border-bottom:2px solid;border-right:2px solid;}
+.video-facade{
+  position:absolute;inset:0;border:0;padding:0;cursor:pointer;width:100%;height:100%;
+  background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;
+}
+.video-facade::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,16,20,.1), rgba(20,16,20,.5));}
+.play-btn{
+  position:relative;z-index:2;width:64px;height:64px;border-radius:50%;background:rgba(166,64,43,.92);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 8px 26px rgba(0,0,0,.35);transition:transform .2s ease;
+}
+.video-facade:hover .play-btn{transform:scale(1.06);}
+.play-btn svg{width:24px;height:24px;margin-left:3px;fill:#fff;}
+.play-btn::before{content:"";position:absolute;inset:-10px;border-radius:50%;border:1.5px solid #fff;opacity:0;animation:ringPulse 2.4s ease-out infinite;}
+@keyframes ringPulse{0%{transform:scale(.75);opacity:.5;}75%{transform:scale(1.4);opacity:0;}100%{opacity:0;}}
+.video-caption{max-width:640px;margin:22px auto 0;text-align:center;}
+.video-caption h3{font-family:var(--font-ui);font-size:1.05rem;text-transform:none;letter-spacing:0;margin-bottom:.3em;}
+.video-caption p{color:var(--ink-dim);font-size:.92rem;}
+.yt-fallback{font-family:var(--font-ui);font-size:.78rem;color:var(--ink-faint);text-decoration:underline;}
+.yt-fallback:hover{color:var(--accent);}
+.video-more-link{text-align:center;margin-top:34px;}
+
+/* ===== TIMELINE ===== */
+.timeline{position:relative;max-width:720px;margin:0 auto;padding-left:4px;}
+.timeline::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:var(--line);}
+.timeline-item{position:relative;padding-left:46px;margin-bottom:36px;}
+.timeline-item:last-child{margin-bottom:0;}
+.timeline-dot{position:absolute;left:2px;top:4px;width:20px;height:20px;border-radius:50%;background:var(--panel);border:3px solid var(--accent);}
+.timeline-year{font-family:var(--font-ui);font-weight:800;color:var(--accent);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.3em;}
+.timeline-item h3{font-family:var(--font-ui);text-transform:none;letter-spacing:0;font-size:1.05rem;margin-bottom:.25em;}
+.timeline-item p{color:var(--ink-dim);font-size:.92rem;margin-bottom:0;}
+
+/* ===== THREE ARTS (alternating rows) ===== */
+.discipline-row{display:grid;grid-template-columns:1fr;gap:26px;align-items:center;padding:38px 0;border-bottom:1px solid var(--line);}
+.discipline-row:first-child{padding-top:0;}
+.discipline-row:last-child{border-bottom:0;padding-bottom:0;}
+.discipline-media .frame-img img{aspect-ratio:4/3;object-fit:cover;}
+.discipline-num{font-family:var(--font-ui);font-size:.72rem;font-weight:800;letter-spacing:.15em;color:var(--accent-dim);margin-bottom:.6em;}
+.discipline-copy h3{font-family:var(--font-ui);text-transform:uppercase;letter-spacing:.02em;font-size:1.3rem;}
+.discipline-copy p{color:var(--ink-dim);}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.chip{display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid var(--accent-dim);color:var(--accent);font-family:var(--font-ui);font-size:.78rem;font-weight:700;}
+.chip.muted{border-color:var(--line);color:var(--ink-faint);}
+
+/* ===== ABOUT CHRISTOS (profile strip) ===== */
+.profile{display:grid;grid-template-columns:1fr;gap:32px;align-items:start;}
+.profile-photo .frame-img img{aspect-ratio:4/5;object-fit:cover;}
+.credential-list{list-style:none;margin:18px 0;padding:0;display:grid;gap:10px;}
+.credential-list li{display:flex;gap:10px;font-size:.92rem;color:var(--ink-dim);}
+.credential-list svg{width:16px;height:16px;flex:0 0 auto;color:var(--accent);margin-top:4px;}
+
+/* ===== PRESS TICKER (list, not cards) ===== */
+.press-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);}
+.press-list li{border-bottom:1px solid var(--line);padding:22px 0;display:grid;grid-template-columns:1fr;gap:6px;}
+.press-source{font-family:var(--font-ui);font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);}
+.press-list p{margin:0;font-style:italic;color:var(--ink);}
+.press-note{font-size:.82rem;color:var(--ink-faint);margin-top:6px;}
+
+/* ===== VISIT / COLOPHON ===== */
+.colophon{display:grid;grid-template-columns:1fr;gap:32px;}
+.colophon-block h4{font-family:var(--font-ui);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.9em;}
+.colophon-block p,.colophon-block a{font-size:.94rem;color:var(--ink-dim);margin:0 0 .5em;text-decoration:none;}
+.colophon-block a:hover{color:var(--accent);}
+.hours-table{width:100%;border-collapse:collapse;font-size:.9rem;}
+.hours-table td{padding:6px 0;border-bottom:1px solid var(--line);color:var(--ink-dim);}
+.hours-table tr.today td{color:var(--accent);font-weight:700;}
+.hours-table td:last-child{text-align:right;}
+.social-row{display:flex;gap:10px;margin-top:6px;}
+.social-row a{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-dim);}
+.social-row a:hover{border-color:var(--accent);color:var(--accent);}
+.social-row svg{width:16px;height:16px;}
+.form-note{font-size:.78rem;color:var(--ink-faint);margin-top:4px;}
+
+/* ===== FOOTER ===== */
+footer.site-footer{background:var(--ink);color:var(--bg);padding:36px 0;}
+.footer-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-family:var(--font-ui);font-size:.78rem;color:#C9BEA9;}
+
+/* ===== STICKY MOBILE CTA ===== */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:200;display:flex;gap:10px;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(241,233,218,.96);border-top:1px solid var(--line);backdrop-filter:blur(6px);
+}
+.sticky-cta .btn{flex:1;}
+
+/* ===== VIDEO LIGHTBOX ===== */
+.video-modal{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;padding:24px;}
+.video-modal[hidden]{display:none;}
+.video-modal-backdrop{position:absolute;inset:0;background:rgba(20,16,14,.92);backdrop-filter:blur(3px);}
+.video-modal-inner{position:relative;z-index:1;width:100%;max-width:960px;}
+.video-modal-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6);border:1px solid var(--line);}
+.video-modal-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.video-modal-close{
+  position:absolute;top:-46px;right:0;width:38px;height:38px;border-radius:50%;
+  background:var(--panel);border:1px solid var(--line);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;
+}
+.video-modal-close:hover{border-color:var(--accent);color:var(--accent);}
+.video-modal-close svg{width:18px;height:18px;}
+body.modal-open{overflow:hidden;}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.is-visible{opacity:1;transform:none;}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .play-btn::before{animation:none;display:none;}
+  .reveal{opacity:1;transform:none;transition:none;}
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width:760px){
+  .roots{grid-template-columns:280px 1fr;}
+  .profile{grid-template-columns:380px 1fr;}
+  .colophon{grid-template-columns:repeat(3,1fr);}
+  .discipline-row{grid-template-columns:1fr 1fr;gap:48px;}
+  .discipline-row.reverse .discipline-media{order:2;}
+  .press-list li{grid-template-columns:200px 1fr;gap:24px;}
+  .video-pair{grid-template-columns:1fr 1fr;}
+}
+@media (min-width:980px){
+  .sticky-cta{display:none;}
+  body{padding-bottom:0;}
+}
+@media (max-width:979px){
+  body{padding-bottom:68px;}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link el" href="#main">Μετάβαση στο περιεχόμενο</a>
+<a class="skip-link en" href="#main">Skip to content</a>
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+<!-- SECTION: MASTHEAD -->
+<header class="masthead">
+  <div class="container masthead-row">
+    <a class="masthead-brand" href="#hero" aria-label="Alexandrou Art Association — αρχική">
+      <img src="img/logo.png" alt="Alexandrou Art Association">
+      <span class="el">Alexandrou Art Association</span><span class="en">Alexandrou Art Association</span>
+    </a>
+    <div class="lang-toggle" role="group" aria-label="Γλώσσα / Language">
+      <button type="button" id="lang-el" aria-pressed="true">ΕΛ</button>
+      <button type="button" id="lang-en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- SECTION 1: HERO — manifesto style -->
+<section class="hero" id="hero">
+  <div class="hero-mark" aria-hidden="true">
+    <svg viewBox="0 0 200 200"><path d="M20 140c10-60 45-95 80-95s70 35 80 95" fill="none" stroke="#A6402B" stroke-width="10" stroke-linecap="round"/></svg>
+  </div>
+  <div class="container hero-inner">
+    <span class="kicker el">ΜΗ ΚΕΡΔΟΣΚΟΠΙΚΟ ΣΩΜΑΤΕΙΟ ΠΟΛΙΤΙΣΜΟΥ · ΟΜΟΔΟΣ</span>
+    <span class="kicker en">NON-PROFIT CULTURAL ASSOCIATION · OMODOS</span>
+    <h1>Alexandrou Art Association</h1>
+    <p class="hero-sub el">Ίδρυμα Χρίστου Αλεξάνδρου · Erasmus+ Διαπιστευμένο · Από το 2019</p>
+    <p class="hero-sub en">Founded by Christos Alexandrou · Erasmus+ Accredited · Since 2019</p>
+
+    <p class="hero-quote el">«...παραμένει προσηλωμένο στο όραμά του για ποιοτική εκπαίδευση ενηλίκων μέσω των τεχνών, συνεχίζοντας να μαθαίνει πέρα από τα σύνορα.»<cite>— από τη δημόσια σελίδα του Χρίστου Αλεξάνδρου</cite></p>
+    <p class="hero-quote en">"...remains committed to its vision of quality adult education through the arts, continuing to learn beyond borders."<cite>— from Christos Alexandrou's own public page</cite></p>
+
+    <nav class="toc" aria-label="Περιεχόμενα σελίδας / Page contents">
+      <a href="#roots"><span class="num">01</span><span class="el">Ρίζα</span><span class="en">Roots</span></a>
+      <a href="#watch"><span class="num">02</span><span class="el">Βίντεο</span><span class="en">Watch</span></a>
+      <a href="#journey"><span class="num">03</span><span class="el">Διαδρομή</span><span class="en">Journey</span></a>
+      <a href="#arts"><span class="num">04</span><span class="el">Τέχνες</span><span class="en">Arts</span></a>
+      <a href="#about"><span class="num">05</span><span class="el">Ο Χρίστος</span><span class="en">About</span></a>
+      <a href="#press"><span class="num">06</span><span class="el">Τύπος</span><span class="en">Press</span></a>
+      <a href="#visit"><span class="num">07</span><span class="el">Επικοινωνία</span><span class="en">Visit</span></a>
+    </nav>
+  </div>
+</section>
+
+<!-- SECTION 2: ROOTS / HERITAGE -->
+<section class="section-pad section-alt" id="roots">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker el">Η ΡΙΖΑ</span><span class="kicker en">THE ROOT</span>
+      <h2><span class="el">Μια κληρονομιά, πριν γίνει σωματείο</span><span class="en">A heritage, before it was an association</span></h2>
+    </div>
+    <div class="roots reveal">
+      <div class="roots-photo">
+        <div class="vinyl-disc" aria-hidden="true" style="width:110px;height:110px;top:-22px;left:-22px;z-index:0;position:absolute;"></div>
+        <figure class="gallery-frame" style="position:relative;z-index:1;margin:0;">
+          <div class="frame-img">
+            <img src="img/ensemble-live.jpg" alt="Ο Χρίστος Αλεξάνδρου τραγουδά με σύνολο σε συναυλία Erasmus+ / Christos Alexandrou singing with an ensemble at an Erasmus+ concert" loading="lazy">
+          </div>
+          <span class="corner corner-tl" aria-hidden="true"></span><span class="corner corner-tr" aria-hidden="true"></span>
+          <span class="corner corner-bl" aria-hidden="true"></span><span class="corner corner-br" aria-hidden="true"></span>
+          <figcaption class="gallery-label">
+            <b class="el">Ζωντανή εμφάνιση</b><b class="en">Live performance</b>
+            <span class="el">Ο Χρίστος τραγουδά με σύνολο σε συναυλία Erasmus+.</span>
+            <span class="en">Christos singing with an ensemble at an Erasmus+ concert.</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="roots-copy">
+        <blockquote>
+          <p class="el">Ο Χρίστος Αλεξάνδρου είναι εγγονός του Γιακουμή Ατσίκκου — του θρυλικού «αγράμματου» βοσκού-ποιητή της Λύσης, μιας από τις πιο σεβαστές φωνές της κυπριακής προφορικής ποίησης του 20ού αιώνα.</p>
+          <p class="en">Christos Alexandrou is the grandson of Giakoumis Atsikkos — the legendary "illiterate" shepherd-poet of Lysi, one of the most respected voices in 20th-century Cypriot oral poetry.</p>
+          <footer class="el">Πηγή: αναζήτηση Google για τον Γιακουμή Ατσίκκο</footer>
+          <footer class="en">Source: Google search results for Giakoumis Atsikkos</footer>
+        </blockquote>
+        <p class="el">Το Alexandrou Art Association δεν ξεκίνησε από το μηδέν — ξεκίνησε από μια οικογένεια που ήδη μιλούσε στην Κύπρο μέσα από στίχους και μελωδίες. Το 2019, ο Χρίστος έδωσε σε αυτή την κληρονομιά μια θεσμική μορφή: ένα μη κερδοσκοπικό σωματείο πολιτισμού στο Όμοδος.</p>
+        <p class="en">The Alexandrou Art Association didn't start from nothing — it started from a family that already spoke to Cyprus through verse and melody. In 2019, Christos gave that inheritance an institutional form: a non-profit cultural association in Omodos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: WATCH (two curated videos, not a grid) -->
+<section class="section-pad" id="watch">
+  <div class="container">
+    <div class="section-head center">
+      <span class="kicker el">ΔΕΣ</span><span class="kicker en">WATCH</span>
+      <h2><span class="el">Ο ίδιος παρουσιάζει το Δίκτυο</span><span class="en">He presents the Association himself</span></h2>
+      <p class="el">Πραγματικά βίντεο από το κανάλι του Χρίστου Αλεξάνδρου στο YouTube.</p>
+      <p class="en">Real videos from Christos Alexandrou's own YouTube channel.</p>
+    </div>
+    <div class="video-pair">
+      <div class="featured-video reveal">
+        <div class="video-frame" data-video-id="L8RQyQRTU9E" data-video-title="Alexandrou Art Association — Παρουσίαση">
+          <button class="video-facade" type="button" style="background-image:url('img/yt-network.jpg')" aria-label="Αναπαραγωγή: Παρουσίαση Alexandrou Art Association" data-label-el="Αναπαραγωγή: Παρουσίαση Alexandrou Art Association" data-label-en="Play: Alexandrou Art Association presentation">
+            <span class="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <span class="corner corner-tl" aria-hidden="true"></span><span class="corner corner-tr" aria-hidden="true"></span>
+          <span class="corner corner-bl" aria-hidden="true"></span><span class="corner corner-br" aria-hidden="true"></span>
+        </div>
+        <div class="video-caption">
+          <h3><span class="el">Παρουσίαση του Δικτύου</span><span class="en">Association presentation</span></h3>
+          <p class="el">Δραστηριότητες, σύνολα και όραμα — από τον ίδιο τον ιδρυτή.</p>
+          <p class="en">Activities, ensembles and vision — from the founder himself.</p>
+          <a class="yt-fallback" href="https://www.youtube.com/watch?v=L8RQyQRTU9E" target="_blank" rel="noopener"><span class="el">Άνοιγμα στο YouTube ↗</span><span class="en">Open on YouTube ↗</span></a>
+        </div>
+      </div>
+      <div class="featured-video reveal">
+        <div class="video-frame" data-video-id="gCIQu82kc-0" data-video-title="Σόλο Κιθάρα &amp; Φωνή — Χρίστος Αλεξάνδρου">
+          <button class="video-facade" type="button" style="background-image:url('img/yt-solo-hq.jpg')" aria-label="Αναπαραγωγή: Σόλο Κιθάρα και Φωνή" data-label-el="Αναπαραγωγή: Σόλο Κιθάρα και Φωνή" data-label-en="Play: Solo guitar and voice">
+            <span class="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <span class="corner corner-tl" aria-hidden="true"></span><span class="corner corner-tr" aria-hidden="true"></span>
+          <span class="corner corner-bl" aria-hidden="true"></span><span class="corner corner-br" aria-hidden="true"></span>
+        </div>
+        <div class="video-caption">
+          <h3><span class="el">Σόλο Κιθάρα &amp; Φωνή</span><span class="en">Solo guitar &amp; voice</span></h3>
+          <p class="el">Ο Χρίστος παίζει και τραγουδά — η τέχνη από πρώτο χέρι.</p>
+          <p class="en">Christos playing and singing — the craft, first-hand.</p>
+          <a class="yt-fallback" href="https://www.youtube.com/watch?v=gCIQu82kc-0" target="_blank" rel="noopener"><span class="el">Άνοιγμα στο YouTube ↗</span><span class="en">Open on YouTube ↗</span></a>
+        </div>
+      </div>
+    </div>
+    <p class="video-more-link">
+      <a class="yt-fallback" href="https://www.youtube.com/@christosalexandrouofficial9258/videos" target="_blank" rel="noopener"><span class="el">Δες όλα τα βίντεο στο κανάλι →</span><span class="en">See all videos on the channel →</span></a>
+    </p>
+  </div>
+</section>
+
+<!-- SECTION 4: JOURNEY (timeline) -->
+<section class="section-pad section-alt" id="journey">
+  <div class="container">
+    <div class="section-head center">
+      <span class="kicker el">Η ΔΙΑΔΡΟΜΗ</span><span class="kicker en">THE JOURNEY</span>
+      <h2><span class="el">Από το Όμοδος στην Ευρώπη</span><span class="en">From Omodos to Europe</span></h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-year">2019</div>
+        <h3><span class="el">Ίδρυση στο Όμοδος</span><span class="en">Founded in Omodos</span></h3>
+        <p class="el">Ο Χρίστος Αλεξάνδρου ιδρύει το Alexandrou Art Association ως μη κερδοσκοπικό σωματείο πολιτισμού.</p>
+        <p class="en">Christos Alexandrou founds the Alexandrou Art Association as a non-profit cultural association.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-year el">Διαπίστευση</div>
+        <div class="timeline-year en">Accreditation</div>
+        <h3><span class="el">Erasmus+ Διαπίστευση</span><span class="en">Erasmus+ Accreditation</span></h3>
+        <p class="el">Το Δίκτυο γίνεται διαπιστευμένος οργανισμός Erasmus+ της Ευρωπαϊκής Ένωσης.</p>
+        <p class="en">The Association becomes an accredited Erasmus+ organisation of the European Union.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-year">Απρίλιος / April 2026</div>
+        <h3><span class="el">Αττάλεια — Καινοτομία στην Εκπαίδευση Ενηλίκων</span><span class="en">Antalya — Innovation in Adult Education</span></h3>
+        <p class="el">Συμμετοχή σε πρόγραμμα κινητικότητας Erasmus+, με κάλυψη από τα τοπικά μέσα (Nea Polis).</p>
+        <p class="en">Participation in an Erasmus+ mobility programme, covered by local press (Nea Polis).</p>
+      </div>
+      <div class="timeline-item reveal">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-year">Αύγουστος / August 2026</div>
+        <h3><span class="el">Αθήνα — Συντονιστική Συνάντηση</span><span class="en">Athens — Coordination Meeting</span></h3>
+        <p class="el">Συντονιστική συνάντηση Erasmus+ με εταίρους από άλλες ευρωπαϊκές χώρες.</p>
+        <p class="en">Erasmus+ coordination meeting with partners from other European countries.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-year el">Βραβείο</div>
+        <div class="timeline-year en">Award</div>
+        <h3><span class="el">Cyprus Education Leaders Awards</span><span class="en">Cyprus Education Leaders Awards</span></h3>
+        <p class="el">Βραβείο καινοτομίας στην εκπαίδευση για το έργο του Δικτύου.</p>
+        <p class="en">Innovation-in-education award for the Association's work.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-year el">Σήμερα</div>
+        <div class="timeline-year en">Today</div>
+        <h3><span class="el">Επτά ενεργά μουσικά σύνολα</span><span class="en">Seven active music ensembles</span></h3>
+        <p class="el">Συναυλίες, φεστιβάλ και μέλος του Λέσχη Λογοτεχνών Λεμεσού.</p>
+        <p class="en">Concerts, festivals, and a member of the Limassol House of Letters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: THREE ARTS -->
+<section class="section-pad" id="arts">
+  <div class="container">
+    <div class="section-head center">
+      <span class="kicker el">ΤΡΕΙΣ ΤΕΧΝΕΣ</span><span class="kicker en">THREE ARTS</span>
+      <h2><span class="el">Διαπιστευμένη σχολή τεχνών</span><span class="en">Accredited school of arts</span></h2>
+      <p class="el">Ο πλήρης τίτλος διαπίστευσης του Δικτύου: μουσική, θέατρο και κινηματογράφος.</p>
+      <p class="en">The Association's full accreditation title: music, theatre and film.</p>
+    </div>
+
+    <div class="discipline-row reveal">
+      <div class="discipline-media gallery-frame">
+        <div class="frame-img">
+          <img src="img/keyboard.jpg" alt="Μέλος του Alexandrou Art Association παίζει πλήκτρα / A member of the Alexandrou Art Association playing keyboard" loading="lazy">
+        </div>
+        <span class="corner corner-tl" aria-hidden="true"></span><span class="corner corner-tr" aria-hidden="true"></span>
+        <span class="corner corner-bl" aria-hidden="true"></span><span class="corner corner-br" aria-hidden="true"></span>
+        <div class="gallery-label">
+          <b class="el">Μουσικό πρόγραμμα</b><b class="en">Music programme</b>
+          <span class="el">Πραγματική φωτογραφία μέλους σε πρόβα.</span>
+          <span class="en">A real photo of a member in rehearsal.</span>
+        </div>
+      </div>
+      <div class="discipline-copy">
+        <div class="discipline-num">01</div>
+        <h3><span class="el">Μουσική</span><span class="en">Music</span></h3>
+        <p class="el">Ο πυρήνας του Δικτύου — πραγματικά όργανα και σύνολα, όπως εμφανίζονται στο κανάλι του Χρίστου στο YouTube.</p>
+        <p class="en">The Association's core — real instruments and ensembles, as they appear on Christos's own YouTube channel.</p>
+        <div class="chip-row">
+          <span class="chip">Κιθάρα / Guitar</span>
+          <span class="chip">Μπαγλαμάς / Baglama</span>
+          <span class="chip">Μπουζούκι / Bouzouki</span>
+          <span class="chip">Μαντολίνο / Mandolin</span>
+          <span class="chip">Βιολί / Violin</span>
+          <span class="chip">Πλήκτρα / Keyboard</span>
+          <span class="chip">Τραγούδι / Voice</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="discipline-row reverse reveal">
+      <div class="discipline-media gallery-frame">
+        <div class="frame-img">
+          <img src="img/awards.jpg" alt="Βραβείο Cyprus Education Leaders Awards / Cyprus Education Leaders Awards win" loading="lazy">
+        </div>
+        <span class="corner corner-tl" aria-hidden="true"></span><span class="corner corner-tr" aria-hidden="true"></span>
+        <span class="corner corner-bl" aria-hidden="true"></span><span class="corner corner-br" aria-hidden="true"></span>
+        <div class="gallery-label">
+          <b class="el">Cyprus Education Leaders Awards</b><b class="en">Cyprus Education Leaders Awards</b>
+          <span class="el">Από τη βράβευση του Δικτύου.</span>
+          <span class="en">From the Association's award ceremony.</span>
+        </div>
+      </div>
+      <div class="discipline-copy">
+        <div class="discipline-num">02</div>
+        <h3><span class="el">Θέατρο</span><span class="en">Theatre</span></h3>
+        <p class="el">Μέρος της επίσημης διαπίστευσης του Δικτύου ως σχολή τεχνών — λεπτομέρειες προγράμματος σε συνεννόηση με τον Χρίστο.</p>
+        <p class="en">Part of the Association's official accreditation as a school of arts — programme details to be confirmed with Christos.</p>
+        <div class="chip-row">
+          <span class="chip muted el">Λεπτομέρειες προς επιβεβαίωση</span>
+          <span class="chip muted en">Details to be confirmed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="discipline-row reveal">
+      <div class="discipline-media gallery-frame">
+        <div class="frame-img">
+          <img src="img/publications.jpg" alt="Δικές τους εκδόσεις: Οδηγός Εκπαιδευτικού / Their own publications: the educator's guide" loading="lazy">
+        </div>
+        <span class="corner corner-tl" aria-hidden="true"></span><span class="corner corner-tr" aria-hidden="true"></span>
+        <span class="corner corner-bl" aria-hidden="true"></span><span class="corner corner-br" aria-hidden="true"></span>
+        <div class="gallery-label">
+          <b class="el">Δικές τους εκδόσεις</b><b class="en">Their own publications</b>
+          <span class="el">Ο «Οδηγός Εκπαιδευτικού» του Δικτύου.</span>
+          <span class="en">The Association's own "Educator's Guide."</span>
+        </div>
+      </div>
+      <div class="discipline-copy">
+        <div class="discipline-num">03</div>
+        <h3><span class="el">Κινηματογράφος</span><span class="en">Film</span></h3>
+        <p class="el">Το τρίτο σκέλος της διαπίστευσης — επίσης μέρος του πλήρους τίτλου της σχολής τεχνών του Δικτύου.</p>
+        <p class="en">The third strand of the accreditation — also part of the Association's full school-of-arts title.</p>
+        <div class="chip-row">
+          <span class="chip muted el">Λεπτομέρειες προς επιβεβαίωση</span>
+          <span class="chip muted en">Details to be confirmed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: ABOUT CHRISTOS -->
+<section class="section-pad section-alt" id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker el">Ο ΧΡΙΣΤΟΣ</span><span class="kicker en">ABOUT CHRISTOS</span>
+      <h2><span class="el">Καλλιτέχνης, όπως γράφει ο ίδιος</span><span class="en">Artist, in his own words</span></h2>
+    </div>
+    <div class="profile reveal">
+      <figure class="profile-photo gallery-frame" style="margin:0;">
+        <div class="frame-img">
+          <img src="img/christos-portrait.jpg" alt="Ο Χρίστος Αλεξάνδρου στα γραφεία της Ευρωπαϊκής Επιτροπής, πρόγραμμα Erasmus+ / Christos Alexandrou at the European Commission's Erasmus+ offices" loading="lazy">
+        </div>
+        <span class="corner corner-tl" aria-hidden="true"></span><span class="corner corner-tr" aria-hidden="true"></span>
+        <span class="corner corner-bl" aria-hidden="true"></span><span class="corner corner-br" aria-hidden="true"></span>
+        <figcaption class="gallery-label">
+          <b class="el">Χρίστος Αλεξάνδρου</b><b class="en">Christos Alexandrou</b>
+          <span class="el">Στα γραφεία της Ευρωπαϊκής Επιτροπής, στο πλαίσιο του Erasmus+.</span>
+          <span class="en">At the European Commission's offices, as part of Erasmus+.</span>
+        </figcaption>
+      </figure>
+      <div>
+        <p class="el">Στη δική του δημόσια σελίδα στο Facebook (4.100+ ακόλουθοι), ο Χρίστος Αλεξάνδρου δηλώνει απλά: «Καλλιτέχνης». Είναι Ιδρυτής και Καλλιτεχνικός Διευθυντής του Alexandrou Art Association, μουσικός δημιουργός και ερμηνευτής, και πιστοποιημένος εκπαιδευτής επαγγελματικής κατάρτισης και διά βίου μάθησης της Αρχής Ανάπτυξης Ανθρώπινου Δυναμικού (ΑνΑΔ). Εμφανίζεται σε πολιτιστικές εκδηλώσεις σε όλη την Κύπρο εδώ και χρόνια — πρόσφατα και στην Αθήνα, σε συναυλία-αφιέρωμα για τα 100 χρόνια από τη γέννηση του Μίκη Θεοδωράκη.</p>
+        <p class="en">On his own public Facebook page (4,100+ followers), Christos Alexandrou describes himself simply as: "Artist." He is Founder and Artistic Director of the Alexandrou Art Association, a music creator and performer, and a certified vocational-training and lifelong-learning instructor of Cyprus's Human Resource Development Authority (HRDA). He has performed at cultural events across Cyprus for years — most recently in Athens, at a concert marking 100 years since the birth of Mikis Theodorakis.</p>
+        <ul class="credential-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span class="el">Ιδρυτής &amp; Καλλιτεχνικός Διευθυντής, Alexandrou Art Association</span><span class="en">Founder &amp; Artistic Director, Alexandrou Art Association</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span class="el">Πιστοποιημένος εκπαιδευτής ΑνΑΔ</span><span class="en">HRDA-certified trainer</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span class="el">Εγγονός του λαϊκού ποιητή Γιακουμή Ατσίκκου</span><span class="en">Grandson of folk poet Giakoumis Atsikkos</span></li>
+        </ul>
+        <p class="el">Στο Instagram του (<a href="https://www.instagram.com/christos_alexandrou_official/" target="_blank" rel="noopener">@christos_alexandrou_official</a>, 574 ακόλουθοι), περιγράφεται ως «Singer / Guitarist».</p>
+        <p class="en">On his Instagram (<a href="https://www.instagram.com/christos_alexandrou_official/" target="_blank" rel="noopener">@christos_alexandrou_official</a>, 574 followers), he describes himself as "Singer / Guitarist."</p>
+        <p class="form-note el">Πλήρες βιογραφικό θα προστεθεί μόλις το λάβουμε από τον πελάτη.</p>
+        <p class="form-note en">Full biography will be added once received from the client.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: PRESS -->
+<section class="section-pad" id="press">
+  <div class="container">
+    <div class="section-head center">
+      <span class="kicker el">ΣΤΟΝ ΤΥΠΟ</span><span class="kicker en">IN THE PRESS</span>
+      <h2><span class="el">Ό,τι λένε άλλοι</span><span class="en">What others say</span></h2>
+      <p class="el">Δεν υπάρχουν ακόμα κριτικές Google για το Δίκτυο — αντ' αυτού, πραγματική δημοσιότητα.</p>
+      <p class="en">There are no Google reviews yet for the Association — so here's real press coverage instead.</p>
+    </div>
+    <ul class="press-list">
+      <li class="reveal">
+        <div class="press-source">Nea Polis (Νέα Πόλις) · Απρίλιος / April 2026</div>
+        <div>
+          <p class="el">«Καινοτομία στην Εκπαίδευση Ενηλίκων: Η Εμπειρία του Alexandrou Art Association στην Αττάλεια», στο πλαίσιο του ευρωπαϊκού προγράμματος Erasmus+.</p>
+          <p class="en">"Innovation in Adult Education: The Alexandrou Art Association Experience in Antalya," coverage of the European Erasmus+ programme.</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="press-source el">Limassol Tourism</div>
+        <div class="press-source en">Limassol Tourism</div>
+        <div>
+          <p class="el">«Ο Χρίστος Αλεξάνδρου και το Ρεμπέτικο Τρίο θα ταξιδέψουν το κοινό μέσα από αγαπημένα ρεμπέτικα τραγούδια», με τη συμμετοχή της ομάδας χορού DUO FLOWERS — «Rebetiko Music Night in Omodos».</p>
+          <p class="en">"Christos Alexandrou and the Rebetiko Trio will take the audience on a musical journey through beloved rebetiko songs," featuring dance group DUO FLOWERS — "Rebetiko Music Night in Omodos."</p>
+        </div>
+      </li>
+      <li class="reveal">
+        <div class="press-source el">Troodos Hotel</div>
+        <div class="press-source en">Troodos Hotel</div>
+        <div>
+          <p class="el">Αναφέρουν τον Χρίστο Αλεξάνδρου ως «γνωστό Κύπριο ερμηνευτή και μουσικό δημιουργό, εγγονό του αείμνηστου Γιακουμή Ατσίκκου».</p>
+          <p class="en">They describe Christos Alexandrou as "a well-known Cypriot performer and musical creator, and grandson of the late Giakoumis Atsikkos."</p>
+        </div>
+      </li>
+    </ul>
+    <p class="press-note el" style="margin-top:18px;"><a href="https://www.google.com/search?q=%22Alexandrou+Art+Association%22" target="_blank" rel="noopener">Δες περισσότερα στο Google →</a></p>
+    <p class="press-note en" style="margin-top:18px;"><a href="https://www.google.com/search?q=%22Alexandrou+Art+Association%22" target="_blank" rel="noopener">See more on Google →</a></p>
+  </div>
+</section>
+
+<!-- SECTION 8: VISIT / COLOPHON -->
+<section class="section-pad section-alt" id="visit">
+  <div class="container">
+    <div class="section-head center">
+      <span class="kicker el">ΕΠΙΚΟΙΝΩΝΙΑ</span><span class="kicker en">GET IN TOUCH</span>
+      <h2><span class="el">Επικοινωνήστε μαζί μας</span><span class="en">Reach out</span></h2>
+    </div>
+    <div class="colophon reveal">
+      <div class="colophon-block">
+        <h4 class="el">Διεύθυνση</h4><h4 class="en">Address</h4>
+        <a href="https://www.google.com/maps/search/?api=1&query=Oikonomou+Dositheou+3+Omodos+4760+Cyprus" target="_blank" rel="noopener">Oikonomou Dositheou 3, Όμοδος 4760, Κύπρος</a>
+        <p class="form-note el">Άνοιξε στο Google Maps →</p>
+        <p class="form-note en">Open in Google Maps →</p>
+      </div>
+      <div class="colophon-block">
+        <h4 class="el">Επικοινωνία</h4><h4 class="en">Contact</h4>
+        <a href="tel:+35799633185">+357 99 633185</a>
+        <a href="https://wa.me/35799633185" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:alexandroucn@gmail.com">alexandroucn@gmail.com</a>
+        <div class="social-row">
+          <a href="https://www.facebook.com/groups/791997479420541/" target="_blank" rel="noopener" aria-label="Facebook Group">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8.1h2.7l.4-3.2h-3.1V7.7c0-.9.3-1.6 1.6-1.6h1.7V3.2C16.2 3.1 15.1 3 13.9 3c-2.5 0-4.3 1.5-4.3 4.4v2.3H7v3.2h2.6V21h3.9z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@christosalexandrouofficial9258" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.4-.4-5A2.5 2.5 0 0 0 19.8 5C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.8.2A2.5 2.5 0 0 0 2.4 7C2 8.6 2 12 2 12s0 3.4.4 5a2.5 2.5 0 0 0 1.8 1.8c1.9.2 7.8.2 7.8.2s5.9 0 7.8-.2A2.5 2.5 0 0 0 21.6 17c.4-1.6.4-5 .4-5zM10 15V9l5.2 3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/christos_alexandrou_official/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+        <p class="form-note el" style="margin-top:10px;">Facebook: δημόσια ομάδα του Δικτύου (229 μέλη) · Instagram: προσωπικός λογαριασμός του Χρίστου (574 ακόλουθοι).</p>
+        <p class="form-note en" style="margin-top:10px;">Facebook: the Association's public group (229 members) · Instagram: Christos's personal account (574 followers).</p>
+      </div>
+      <div class="colophon-block">
+        <h4 class="el">Ωράριο</h4><h4 class="en">Hours</h4>
+        <table class="hours-table" aria-label="Ωράριο λειτουργίας / Opening hours">
+          <tbody id="hours-body">
+            <tr data-day="6"><td class="el">Σάββατο</td><td class="en">Saturday</td><td>10:00 π.μ.+</td></tr>
+            <tr data-day="1"><td class="el">Δευ–Παρ</td><td class="en">Mon–Fri</td><td class="el">Κατόπιν ραντεβού</td><td class="en">By appointment</td></tr>
+            <tr data-day="0"><td class="el">Κυριακή</td><td class="en">Sunday</td><td class="el">Κλειστά</td><td class="en">Closed</td></tr>
+          </tbody>
+        </table>
+        <p class="form-note el">Μόνο το Σάββατο επιβεβαιώθηκε από τη σελίδα Google του Δικτύου.</p>
+        <p class="form-note en">Only Saturday is confirmed from the Association's Google listing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- SECTION: FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-row">
+    <span>&copy; <span id="year">2026</span> Alexandrou Art Association.</span>
+    <span class="el">Δείγμα ιστοσελίδας — δεν έχει δημοσιευθεί ακόμα.</span>
+    <span class="en">Sample website — not yet published.</span>
+  </div>
+</footer>
+
+<!-- Mobile sticky CTA -->
+<div class="sticky-cta" aria-hidden="false">
+  <a class="btn btn-outline" href="tel:+35799633185"><span class="el">Κάλεσε</span><span class="en">Call</span></a>
+  <a class="btn btn-primary" href="#visit"><span class="el">Επικοινωνία</span><span class="en">Get in touch</span></a>
+</div>
+
+<!-- Video lightbox: every video opens here -->
+<div class="video-modal" id="video-modal" hidden>
+  <div class="video-modal-backdrop" data-close></div>
+  <div class="video-modal-inner" role="dialog" aria-modal="true" aria-label="Video player">
+    <button class="video-modal-close" type="button" data-close aria-label="Κλείσιμο / Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+    </button>
+    <div class="video-modal-frame" id="video-modal-frame"></div>
+  </div>
+</div>
+
+<!-- SECTION: JSON-LD STRUCTURED DATA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "Alexandrou Art Association",
+  "alternateName": "Alexandrou Cultural Network",
+  "image": "img/yt-network.jpg",
+  "logo": "img/logo.png",
+  "url": "https://REPLACE-WITH-DOMAIN.example/",
+  "telephone": "+35799633185",
+  "email": "alexandroucn@gmail.com",
+  "foundingDate": "2019",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Oikonomou Dositheou 3",
+    "addressLocality": "Omodos",
+    "addressRegion": "Lemesos",
+    "postalCode": "4760",
+    "addressCountry": "CY"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Christos Alexandrou"
+  },
+  "sameAs": [
+    "https://www.facebook.com/groups/791997479420541/",
+    "https://www.youtube.com/@christosalexandrouofficial9258"
+  ]
+}
+</script>
+
+<!-- SECTION: SCRIPTS -->
+<script>
+(function(){
+  "use strict";
+
+  var html = document.documentElement;
+  var btnEl = document.getElementById("lang-el");
+  var btnEn = document.getElementById("lang-en");
+  var titles = {
+    el: "Alexandrou Art Association | Όμοδος — Μη Κερδοσκοπικό Σωματείο Πολιτισμού",
+    en: "Alexandrou Art Association | Omodos — Non-Profit Cultural Association"
+  };
+  function setLang(lang){
+    html.setAttribute("data-lang", lang);
+    html.setAttribute("lang", lang);
+    document.title = titles[lang];
+    btnEl.setAttribute("aria-pressed", String(lang === "el"));
+    btnEn.setAttribute("aria-pressed", String(lang === "en"));
+    document.querySelectorAll("[data-label-" + lang + "]").forEach(function(el){
+      el.setAttribute("aria-label", el.getAttribute("data-label-" + lang));
+    });
+    try{ localStorage.setItem("aaa-lang", lang); }catch(e){}
+  }
+  btnEl.addEventListener("click", function(){ setLang("el"); });
+  btnEn.addEventListener("click", function(){ setLang("en"); });
+  try{
+    var saved = localStorage.getItem("aaa-lang");
+    if(saved === "en") setLang("en");
+  }catch(e){}
+
+  /* -- video lightbox -- */
+  var modal = document.getElementById("video-modal");
+  var modalFrame = document.getElementById("video-modal-frame");
+  var lastFocused = null;
+
+  function openVideoModal(id, title){
+    modalFrame.innerHTML = "";
+    var iframe = document.createElement("iframe");
+    iframe.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+    iframe.title = title || "YouTube video";
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+    modalFrame.appendChild(iframe);
+    lastFocused = document.activeElement;
+    modal.hidden = false;
+    document.body.classList.add("modal-open");
+    modal.querySelector(".video-modal-close").focus();
+  }
+  function closeVideoModal(){
+    modal.hidden = true;
+    modalFrame.innerHTML = "";
+    document.body.classList.remove("modal-open");
+    if(lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+  }
+  document.querySelectorAll(".video-facade").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var frame = btn.parentElement;
+      var id = frame.getAttribute("data-video-id");
+      var title = frame.getAttribute("data-video-title");
+      openVideoModal(id, title);
+    });
+  });
+  modal.querySelectorAll("[data-close]").forEach(function(el){ el.addEventListener("click", closeVideoModal); });
+  document.addEventListener("keydown", function(ev){ if(ev.key === "Escape" && !modal.hidden) closeVideoModal(); });
+
+  /* -- highlight today in the hours table (Cyprus time) -- */
+  try{
+    var todayStr = new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Nicosia", weekday: "short" }).format(new Date());
+    var map = {Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6};
+    var todayNum = map[todayStr];
+    var row = document.querySelector('#hours-body tr[data-day="' + todayNum + '"]');
+    if(row) row.classList.add("today");
+  }catch(e){}
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* -- scroll progress bar -- */
+  var progress = document.getElementById("scroll-progress");
+  function updateProgress(){
+    var h = document.documentElement;
+    var scrolled = h.scrollTop;
+    var height = h.scrollHeight - h.clientHeight;
+    progress.style.width = (height > 0 ? (scrolled / height) * 100 : 0) + "%";
+  }
+  document.addEventListener("scroll", updateProgress, { passive: true });
+  updateProgress();
+
+  /* -- scroll reveal -- */
+  var prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if("IntersectionObserver" in window && !prefersReduced){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ entry.target.classList.add("is-visible"); io.unobserve(entry.target); }
+      });
+    }, { threshold: .12, rootMargin: "0px 0px -40px 0px" });
+    document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("is-visible"); });
+  }
+})();
+</script>
+
+</body>
+</html>

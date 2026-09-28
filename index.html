@@ -167,10 +167,8 @@ header.masthead{
 .roots-copy blockquote p{position:relative;z-index:1;}
 .roots-copy blockquote footer{font-style:normal;font-family:var(--font-ui);font-size:.78rem;color:var(--ink-faint);margin-top:.6em;text-transform:uppercase;letter-spacing:.05em;}
 
-/* ===== FEATURED VIDEO (a small curated pair, not a grid) ===== */
-.video-pair{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:44px;}
+/* ===== FEATURED VIDEO (single, not a grid) ===== */
 .featured-video{max-width:820px;margin:0 auto;}
-.video-pair .featured-video{max-width:none;}
 .video-frame{position:relative;aspect-ratio:16/9;background:#141014;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);}
 .video-frame .corner{position:absolute;width:22px;height:22px;z-index:3;pointer-events:none;border-color:#fff;filter:drop-shadow(0 1px 3px rgba(0,0,0,.5));}
 .video-frame .corner-tl{top:10px;left:10px;border-top:2px solid;border-left:2px solid;}
@@ -195,7 +193,6 @@ header.masthead{
 .video-caption p{color:var(--ink-dim);font-size:.92rem;}
 .yt-fallback{font-family:var(--font-ui);font-size:.78rem;color:var(--ink-faint);text-decoration:underline;}
 .yt-fallback:hover{color:var(--accent);}
-.video-more-link{text-align:center;margin-top:34px;}
 
 /* ===== TIMELINE ===== */
 .timeline{position:relative;max-width:720px;margin:0 auto;padding-left:4px;}
@@ -293,7 +290,6 @@ body.modal-open{overflow:hidden;}
   .discipline-row{grid-template-columns:1fr 1fr;gap:48px;}
   .discipline-row.reverse .discipline-media{order:2;}
   .press-list li{grid-template-columns:200px 1fr;gap:24px;}
-  .video-pair{grid-template-columns:1fr 1fr;}
 }
 @media (min-width:980px){
   .sticky-cta{display:none;}
@@ -390,50 +386,32 @@ body.modal-open{overflow:hidden;}
   </div>
 </section>
 
-<!-- SECTION 3: WATCH (two curated videos, not a grid) -->
+<!-- SECTION 3: WATCH (single featured video) -->
 <section class="section-pad" id="watch">
   <div class="container">
     <div class="section-head center">
       <span class="kicker el">ΔΕΣ</span><span class="kicker en">WATCH</span>
       <h2><span class="el">Ο ίδιος παρουσιάζει το Δίκτυο</span><span class="en">He presents the Association himself</span></h2>
-      <p class="el">Πραγματικά βίντεο από το κανάλι του Χρίστου Αλεξάνδρου στο YouTube.</p>
-      <p class="en">Real videos from Christos Alexandrou's own YouTube channel.</p>
+      <p class="el">Πραγματικό βίντεο από το κανάλι του Χρίστου Αλεξάνδρου στο YouTube.</p>
+      <p class="en">A real video from Christos Alexandrou's own YouTube channel.</p>
     </div>
-    <div class="video-pair">
-      <div class="featured-video reveal">
-        <div class="video-frame" data-video-id="L8RQyQRTU9E" data-video-title="Alexandrou Art Association — Παρουσίαση">
-          <button class="video-facade" type="button" style="background-image:url('img/yt-network.jpg')" aria-label="Αναπαραγωγή: Παρουσίαση Alexandrou Art Association" data-label-el="Αναπαραγωγή: Παρουσίαση Alexandrou Art Association" data-label-en="Play: Alexandrou Art Association presentation">
-            <span class="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-          </button>
-          <span class="corner corner-tl" aria-hidden="true"></span><span class="corner corner-tr" aria-hidden="true"></span>
-          <span class="corner corner-bl" aria-hidden="true"></span><span class="corner corner-br" aria-hidden="true"></span>
-        </div>
-        <div class="video-caption">
-          <h3><span class="el">Παρουσίαση του Δικτύου</span><span class="en">Association presentation</span></h3>
-          <p class="el">Δραστηριότητες, σύνολα και όραμα — από τον ίδιο τον ιδρυτή.</p>
-          <p class="en">Activities, ensembles and vision — from the founder himself.</p>
-          <a class="yt-fallback" href="https://www.youtube.com/watch?v=L8RQyQRTU9E" target="_blank" rel="noopener"><span class="el">Άνοιγμα στο YouTube ↗</span><span class="en">Open on YouTube ↗</span></a>
-        </div>
+    <div class="featured-video reveal">
+      <div class="video-frame" data-video-id="L8RQyQRTU9E" data-video-title="Alexandrou Art Association — Παρουσίαση">
+        <button class="video-facade" type="button" style="background-image:url('img/yt-network.jpg')" aria-label="Αναπαραγωγή: Παρουσίαση Alexandrou Art Association" data-label-el="Αναπαραγωγή: Παρουσίαση Alexandrou Art Association" data-label-en="Play: Alexandrou Art Association presentation">
+          <span class="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        </button>
+        <span class="corner corner-tl" aria-hidden="true"></span><span class="corner corner-tr" aria-hidden="true"></span>
+        <span class="corner corner-bl" aria-hidden="true"></span><span class="corner corner-br" aria-hidden="true"></span>
       </div>
-      <div class="featured-video reveal">
-        <div class="video-frame" data-video-id="gCIQu82kc-0" data-video-title="Σόλο Κιθάρα &amp; Φωνή — Χρίστος Αλεξάνδρου">
-          <button class="video-facade" type="button" style="background-image:url('img/yt-solo-hq.jpg')" aria-label="Αναπαραγωγή: Σόλο Κιθάρα και Φωνή" data-label-el="Αναπαραγωγή: Σόλο Κιθάρα και Φωνή" data-label-en="Play: Solo guitar and voice">
-            <span class="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-          </button>
-          <span class="corner corner-tl" aria-hidden="true"></span><span class="corner corner-tr" aria-hidden="true"></span>
-          <span class="corner corner-bl" aria-hidden="true"></span><span class="corner corner-br" aria-hidden="true"></span>
-        </div>
-        <div class="video-caption">
-          <h3><span class="el">Σόλο Κιθάρα &amp; Φωνή</span><span class="en">Solo guitar &amp; voice</span></h3>
-          <p class="el">Ο Χρίστος παίζει και τραγουδά — η τέχνη από πρώτο χέρι.</p>
-          <p class="en">Christos playing and singing — the craft, first-hand.</p>
-          <a class="yt-fallback" href="https://www.youtube.com/watch?v=gCIQu82kc-0" target="_blank" rel="noopener"><span class="el">Άνοιγμα στο YouTube ↗</span><span class="en">Open on YouTube ↗</span></a>
-        </div>
+      <div class="video-caption">
+        <h3><span class="el">Παρουσίαση του Δικτύου</span><span class="en">Association presentation</span></h3>
+        <p class="el">Δραστηριότητες, σύνολα και όραμα — από τον ίδιο τον ιδρυτή.</p>
+        <p class="en">Activities, ensembles and vision — from the founder himself.</p>
+        <a class="yt-fallback" href="https://www.youtube.com/watch?v=L8RQyQRTU9E" target="_blank" rel="noopener"><span class="el">Άνοιγμα στο YouTube ↗</span><span class="en">Open on YouTube ↗</span></a>
+        &nbsp;·&nbsp;
+        <a class="yt-fallback" href="https://www.youtube.com/@christosalexandrouofficial9258/videos" target="_blank" rel="noopener"><span class="el">Δες όλα τα βίντεο →</span><span class="en">See all videos →</span></a>
       </div>
     </div>
-    <p class="video-more-link">
-      <a class="yt-fallback" href="https://www.youtube.com/@christosalexandrouofficial9258/videos" target="_blank" rel="noopener"><span class="el">Δες όλα τα βίντεο στο κανάλι →</span><span class="en">See all videos on the channel →</span></a>
-    </p>
   </div>
 </section>
 
